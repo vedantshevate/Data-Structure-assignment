@@ -1,0 +1,76 @@
+#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+int queue[10];
+
+int front = 0;
+int rear = 0;
+
+int choice;
+
+do
+{
+cout &lt;&lt; &quot;\n\n===== BANK TOKEN SYSTEM =====&quot;;
+cout &lt;&lt; &quot;\n1. Issue Token&quot;;
+cout &lt;&lt; &quot;\n2. Display Tokens&quot;;
+cout &lt;&lt; &quot;\n3. Serve Customer&quot;;
+cout &lt;&lt; &quot;\n4. Exit&quot;;
+
+cout &lt;&lt; &quot;\nEnter your choice: &quot;;
+cin &gt;&gt; choice;
+
+// Issue Token
+if (choice == 1)
+{
+cout &lt;&lt; &quot;\nEnter Token Number: &quot;;
+cin &gt;&gt; queue[rear];
+
+rear++;
+
+cout &lt;&lt; &quot;Token Issued!&quot;;
+}
+
+// Display Tokens
+else if (choice == 2)
+{
+cout &lt;&lt; &quot;\n===== WAITING CUSTOMERS =====\n&quot;;
+
+for (int i = front; i &lt; rear; i++)
+{
+cout &lt;&lt; &quot;Token: &quot; &lt;&lt; queue[i] &lt;&lt; endl;
+}
+}
+
+// Serve Customer
+else if (choice == 3)
+{
+if (front &lt; rear)
+{
+cout &lt;&lt; &quot;\nServing Token: &quot; &lt;&lt; queue[front];
+
+front++;
+}
+else
+{
+
+cout &lt;&lt; &quot;\nNo customers waiting!&quot;;
+}
+}
+
+// Exit
+else if (choice == 4)
+{
+cout &lt;&lt; &quot;\nThank you!&quot;;
+}
+
+else
+{
+cout &lt;&lt; &quot;\nInvalid Choice!&quot;;
+}
+
+} while (choice != 4);
+
+return 0;
+}
